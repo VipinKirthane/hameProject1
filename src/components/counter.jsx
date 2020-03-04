@@ -1,20 +1,18 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-  constructor() {
-    super();
-    console.log(this);
-  }
+  // constructor() {
+  //   super();
+  // }
 
   state = {
     count: 0,
     tags: [1, 2, 3]
   };
 
-  renderTags() {
+  renderTags = () => {
     if (this.state.tags.length === 0)
       return <p style={{ margin: 20 }}>There are no tags!</p>;
-
     return (
       <ul>
         {this.state.tags.map(tag => (
@@ -22,22 +20,23 @@ class Counter extends Component {
         ))}
       </ul>
     );
-  }
+  };
 
-  getBadgeClasses() {
+  getBadgeClasses = () => {
     let classes = "badge badge-md badge-";
     classes += this.state.count === 0 ? "warning" : "primary";
     return classes;
-  }
+  };
 
-  formatCount() {
+  formatCount = () => {
     const { count } = this.state;
     return count === 0 ? "Zero" : count;
-  }
+  };
 
-  handleIncrement() {
-    console.log("Increment Clicked", this.state.count);
-  }
+  handleIncrement = product => {
+    console.log(product);
+    this.setState({ count: this.state.count + 1 });
+  };
 
   render() {
     return (
